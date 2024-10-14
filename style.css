@@ -1,4 +1,4 @@
-/* Global Styles */
+/* Gaya Umum */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -11,6 +11,25 @@ header {
     color: white;
     padding: 20px;
     text-align: center;
+    overflow: hidden; /* Untuk menghindari konten keluar dari batas */
+}
+
+header h1 {
+    margin: 0;
+    animation: moveText 10s linear infinite; /* Animasi untuk h1 */
+}
+
+/* Animasi untuk h1 */
+@keyframes moveText {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 nav a {
@@ -21,7 +40,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #FFD700; /* Gold color on hover */
+    color: #FFD700;
 }
 
 footer {
@@ -31,57 +50,52 @@ footer {
     padding: 20px;
 }
 
-/* Block elements: header, articles, footer */
-article {
-    background-color: white;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-/* Image styling */
-article img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-/* Inline elements: nav links, social media spans */
-nav a, footer span {
-    display: inline;
-    margin-right: 15px;
-}
-
-/* Flexbox layout for larger screens */
-main .content {
+/* Gaya Kursus */
+.courses {
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
+    margin: 20px;
+    padding: 20px;
 }
 
-/* Responsive Layouts */
+.course {
+    background-color: white;
+    width: 30%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.course:hover {
+    transform: scale(1.05);
+}
+
+.course img {
+    max-width: 300px;
+    margin-bottom: 100px;
+}
+
+.course h2 {
+    color: #333;
+}
+
+.course p {
+    color: #666;
+    text-align: justify; /* Menambahkan justifikasi untuk paragraf */
+}
+
+/* Layout Responsif */
 @media (max-width: 768px) {
-    main .content {
+    .courses {
         flex-direction: column;
         align-items: center;
     }
-}
 
-@media (max-width: 480px) {
-    nav a {
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    main .content {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    article {
-        width: 100%;
-        margin: 10px 0;
+    .course {
+        width: 80%;
+        margin-bottom: 20px;
     }
 }
